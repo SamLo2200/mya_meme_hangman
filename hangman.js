@@ -121,7 +121,7 @@ function generateAnswerDisplay(word) {
 }
 
 function showHint() {
-  containerHint.innerHTML = `Clue - ${hint}`;
+  containerHint.innerHTML = `提示: ${hint}`;
 }
 
 buttonHint.addEventListener("click", showHint);
@@ -134,7 +134,7 @@ function init() {
   winningCheck = "";
   context.clearRect(0, 0, 400, 400);
   canvas();
-  containerHint.innerHTML = `Clue -`;
+  containerHint.innerHTML = `提示: `;
   livesDisplay.innerHTML = `You have ${life} lives!`;
   setAnswer();
   container.innerHTML = generateButton();
@@ -273,3 +273,7 @@ var drawArray = [
   frame2,
   frame1
 ];
+
+function test(){
+    console.log("form submited")
+}

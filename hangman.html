@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VANILLA JAVASCRIPT HANGMAN GAME</title>
+    <title>米亞梗圖 Hangman</title>
     <meta charset="UTF-8" />
     <link href="hangman.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
     <div class="wrapper">
-      <h1>Hangman</h1>
-      <h2>Vanilla Javascript Hangman Game</h2>
-      <p>
-        Use the alphabet below to guess the word, or click hint to get a clue.
-      </p>
+      <h1>米亞梗圖 Hangman</h1>
+      <h2>米亞3周年限定</h2>
+      <p>在下方嘅輸入中打出答案</p>
     </div>
 
     <div class="wrapper">
-      <div class="alphabetButton" id="alphabetButtons"></div>
+        <form onsubmit="test(); return false;">
+            <input class="input_box" id="input_box"></input>
+        </form>
+      
       <p id="categoryName"></p>
       <div id="hold"></div>
       <p id="mylives"></p>
-      <p id="clue">Clue -</p>
-      <canvas id="stickman"
-        >This Text will show if the Browser does NOT support HTML5 Canvas
-        tag</canvas
-      >
+      <p id="clue">提示</p>
+      <canvas id="stickman">
+        This Text will show if the Browser does NOT support HTML5 Canvas tag
+      </canvas>
+
       <div class="container">
-        <button class="btn-2" id="hint">Hint</button>
-        <button class="btn-2" id="reset">Play again</button>
+        <button class="btn-2" id="hint">提示</button>
+        <button class="btn-2" id="reset">下題</button>
       </div>
     </div>
     <script src="hangman.js"></script>
