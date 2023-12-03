@@ -14,16 +14,18 @@
     </div>
 
     <div class="wrapper">
-        <form onsubmit="test(); return false;">
+        <form onsubmit="getUserInput(); return false;">
             <input class="input_box" id="input_box"></input>
         </form>
+        
+        <button id="debug" onclick="randomQuestionIndex()">debug</button>
       
       <p id="categoryName"></p>
       <div id="hold"></div>
       <p id="mylives"></p>
       <p id="clue">提示</p>
       <canvas id="stickman">
-        This Text will show if the Browser does NOT support HTML5 Canvas tag
+        Your browser does NOT support HTML5 Canvas tag, please consider using Chrome.
       </canvas>
 
       <div class="container">
