@@ -5,6 +5,16 @@ var hint = "";
 var life = 10;
 var wordDisplay = [];
 var winningCheck = "";
+
+var currentHint = 1;
+var currentQuestionValue = "";
+var currentQuestion;
+var currentAnswer = "";
+
+var initStatus = true;
+
+var isAnswerCorrect = false;
+
 const containerHint = document.getElementById("clue");
 const buttonHint = document.getElementById("hint");
 const buttonReset = document.getElementById("reset");
@@ -256,12 +266,14 @@ function checkLetters(userInputCharArray) {
     var matchingArray = [];
 
     for (let i = 0; i < userInputCharArray.length; i++) {
-        answer = "米亞世一".split("");
+        answer = currentAnswer.split("");
+        console.log(answer);
+        // answer = "香港".split("");
         console.log(`This is I: ${i}`);
 
         //console.log(userInputCharArray[i]);
-
-        const regex = new RegExp(userInputCharArray);
+        // const regex = new RegExp(userInputCharArray);
+        // console.log(regex);
 
         if (answer.includes(userInputCharArray[i])) {
             matchingArray.push(userInputCharArray[i]);
@@ -270,18 +282,63 @@ function checkLetters(userInputCharArray) {
     }
 }
 
-function randomQuestionIndex() {
-    // console.log(`This is the length of the array: ${question.length}`);
-    // console.log(Math.floor(Math.random() * question.length));
+function setQuestion() {
+    //console.log(currentHint);
 
+    // const questionKeys = Object.keys(Question);
+    // const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
+    // //Display the corresponding question of the key index
+    // const randomQuestion = Question[randomQuestionKey];
+
+    // console.log("Question: " + randomQuestion.Question);
+
+    if (isAnswerCorrect || initStatus) {
+        currentQuestion = getRandomQuestion();
+        //console.log(currentQuestion);
+        if (initStatus) {
+            initStatus = false;
+        }
+    } else {
+        console.log(`the answer is not correct, the current question is: ${currentQuestion.Question}`);
+        getAnswer();
+    }
+
+    getHint();
+}
+
+function getHint() {
+    const hintKeys = Object.keys(currentQuestion.Hint);
+
+    const hintToDisplayKey = hintKeys[currentHint - 1];
+    const hintToDisplay = currentQuestion.Hint[hintToDisplayKey];
+    console.log(`${hintToDisplayKey}: ${hintToDisplay}`);
+
+    if (currentHint < 3) {
+        currentHint = currentHint + 1;
+    } else {
+        currentHint = 1;
+    }
+}
+
+function getRandomQuestion() {
     const questionKeys = Object.keys(Question);
     const randomQuestionKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
+    //Display the corresponding question of the key index
     const randomQuestion = Question[randomQuestionKey];
 
-    console.log("Question: " + randomQuestion.Question);
+    console.log("Question: " + randomQuestion.Question + "[getRandomQuestion]");
 
-    console.log("Hints:");
-    Object.values(randomQuestion.Hint).forEach((hint, index) => {
-        console.log("Hint" + (index + 1) + ": " + hint);
-    });
+    return randomQuestion;
+}
+
+function getAnswer() {
+    //console.log(`The answer is: ${currentQuestion.Answer}`);
+    currentAnswer = currentQuestion.Answer;
+    console.log(currentAnswer);
+}
+
+function displayHandler() {
+    isAnswerCorrect = false;
+    setQuestion();
+    //getHint();
 }
