@@ -14,22 +14,24 @@
     </div>
 
     <div class="wrapper">
+        <p id="question"></p>
+        
         <form onsubmit="getUserInput(); return false;">
             <input class="input_box" id="input_box"></input>
         </form>
         
         <button id="debug" onclick="displayHandler();">debug</button>
       
-      <p id="categoryName"></p>
+    
       <div id="hold"></div>
       <p id="mylives"></p>
-      <p id="clue">提示</p>
+      <p id="clue">提示: </p>
       <canvas id="stickman">
         Your browser does NOT support HTML5 Canvas tag, please consider using Chrome.
       </canvas>
 
       <div class="container">
-        <button class="btn-2" id="hint">提示</button>
+        <button class="btn-2" id="hint" onclick="hintHandler()">提示</button>
         <button class="btn-2" id="reset">下題</button>
       </div>
     </div>

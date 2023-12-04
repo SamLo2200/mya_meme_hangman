@@ -6,7 +6,9 @@ var life = 10;
 var wordDisplay = [];
 var winningCheck = "";
 
-var currentHint = 1;
+var currentHintIndex = 1;
+var currentHint;
+
 var currentQuestionValue = "";
 var currentQuestion;
 var currentAnswer = "";
@@ -22,7 +24,9 @@ const livesDisplay = document.getElementById("mylives");
 var myStickman = document.getElementById("stickman");
 var context = myStickman.getContext("2d");
 
-//init Questionsssss
+const questionDisplay = document.querySelector("#question");
+
+//Questionsssss
 const Question = {
     Question1: {
         Question: "你今日食咗飯未呀?",
@@ -49,6 +53,15 @@ const Question = {
     },
 };
 
+if (initStatus) {
+    currentQuestion = getRandomQuestion();
+    // console.log(currentQuestion.Question);
+    questionDisplay.innerHTML = `題目: ${currentQuestion.Question}`;
+    if (initStatus) {
+        initStatus = false;
+    }
+}
+
 // function handleClick(event) {
 //   const isButton = event.target.nodeName === "BUTTON";
 //   if (isButton) {
@@ -59,21 +72,6 @@ const Question = {
 //   }
 //   return;
 // }
-
-//word array
-const question = ["The Chosen Category Is Premier League Football Teams", "The Chosen Category Is Films", "The Chosen Category Is Cities"];
-
-const categories = [
-    ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-    ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-    ["manchester", "milan", "madrid", "amsterdam", "prague"],
-];
-
-const hints = [
-    ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
-    ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
-    ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"],
-];
 
 //set question,answer and hint
 
@@ -106,10 +104,6 @@ function generateAnswerDisplay(word) {
     return wordDisplay.join(" ");
 }
 
-function showHint() {
-    containerHint.innerHTML = `提示: ${hint}`;
-}
-
 buttonHint.addEventListener("click", showHint);
 //setting initial condition
 function init() {
@@ -120,7 +114,7 @@ function init() {
     winningCheck = "";
     context.clearRect(0, 0, 400, 400);
     canvas();
-    containerHint.innerHTML = `提示: `;
+    // containerHint.innerHTML = `提示: `;
     livesDisplay.innerHTML = `You have ${life} lives!`;
     setAnswer();
     container.innerHTML = generateButton();
@@ -264,12 +258,13 @@ function getUserInput() {
 
 function checkLetters(userInputCharArray) {
     var matchingArray = [];
+    questionInit();
 
     for (let i = 0; i < userInputCharArray.length; i++) {
         answer = currentAnswer.split("");
-        console.log(answer);
+        console.log(`This is the answer: ${answer}`);
         // answer = "香港".split("");
-        console.log(`This is I: ${i}`);
+        //console.log(`This is I: ${i}`);
 
         //console.log(userInputCharArray[i]);
         // const regex = new RegExp(userInputCharArray);
@@ -278,6 +273,14 @@ function checkLetters(userInputCharArray) {
         if (answer.includes(userInputCharArray[i])) {
             matchingArray.push(userInputCharArray[i]);
             console.log(`This is the array list ${matchingArray}`);
+        }
+
+        if (matchingArray.toString() == answer.toString()) {
+            console.log("U did it!");
+        } else {
+            console.log("you failed ");
+            // life = life - 1;
+            // animate();
         }
     }
 }
@@ -299,25 +302,26 @@ function setQuestion() {
             initStatus = false;
         }
     } else {
-        console.log(`the answer is not correct, the current question is: ${currentQuestion.Question}`);
-        getAnswer();
+        console.log(`setQuestion Triggered`);
     }
 
-    getHint();
+    //getHint();
 }
 
 function getHint() {
     const hintKeys = Object.keys(currentQuestion.Hint);
 
-    const hintToDisplayKey = hintKeys[currentHint - 1];
+    const hintToDisplayKey = hintKeys[currentHintIndex - 1];
     const hintToDisplay = currentQuestion.Hint[hintToDisplayKey];
-    console.log(`${hintToDisplayKey}: ${hintToDisplay}`);
+    // console.log(`${hintToDisplayKey}: ${hintToDisplay}`);
 
-    if (currentHint < 3) {
-        currentHint = currentHint + 1;
+    if (currentHintIndex < 3) {
+        currentHintIndex = currentHintIndex + 1;
     } else {
-        currentHint = 1;
+        currentHintIndex = 1;
     }
+
+    return `題示 ${currentHintIndex}: ${hintToDisplay}`;
 }
 
 function getRandomQuestion() {
@@ -326,7 +330,7 @@ function getRandomQuestion() {
     //Display the corresponding question of the key index
     const randomQuestion = Question[randomQuestionKey];
 
-    console.log("Question: " + randomQuestion.Question + "[getRandomQuestion]");
+    //console.log("Question: " + randomQuestion.Question + "[getRandomQuestion]");
 
     return randomQuestion;
 }
@@ -334,11 +338,22 @@ function getRandomQuestion() {
 function getAnswer() {
     //console.log(`The answer is: ${currentQuestion.Answer}`);
     currentAnswer = currentQuestion.Answer;
-    console.log(currentAnswer);
+    //console.log(currentAnswer);
 }
 
 function displayHandler() {
     isAnswerCorrect = false;
     setQuestion();
     //getHint();
+}
+
+function questionInit() {
+    setQuestion();
+    getAnswer();
+}
+
+function hintHandler() {
+    currentHint = getHint();
+    containerHint.innerHTML = currentHint;
+    // console.log(currentHint);
 }
