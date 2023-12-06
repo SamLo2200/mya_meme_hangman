@@ -19,6 +19,7 @@ var currentQuestion;
 var currentAnswer = "";
 
 var initStatus = true;
+var initHint = true;
 
 var isAnswerCorrect = false;
 var answeredQuestion = [];
@@ -131,26 +132,146 @@ const Question = {
     },
 
     Question3: {
-        Question: "打咗機未?",
+        Question: "YK先生又名咩?",
 
-        Answer: "打咗",
+        Answer: "關羽大哥",
 
         Hint: {
-            Hint1: "打咗機未? 1",
-            Hint2: "打咗機未? 2",
-            Hint3: "打咗機未? 3",
+            Hint1: "4個字, 有兩個字係男性嘅稱呼",
+            Hint2: "歷史人物嚟",
+            Hint3: "同數字有關嘅",
         },
     },
 
     Question4: {
-        Question: "打咗code未?",
+        Question: "核彈係邊個發明嘅?",
 
-        Answer: "打咗",
+        Answer: "愛因斯坦",
 
         Hint: {
-            Hint1: "打咗code未? 1",
-            Hint2: "打咗code未? 2",
-            Hint3: "打咗code未? 3",
+            Hint1: "唔係正確答案嚟, 4個字",
+            Hint2: "同物理有關",
+            Hint3: "係喺最近嘅直播入面提過",
+        },
+    },
+
+    Question5: {
+        Question: "正確OBS立即關台嘅方式係咩(如果答案唔係中文嚟請用細階表達同唔好隔格)?",
+
+        Answer: "alt+f4",
+
+        Hint: {
+            Hint1: "6個字, 同電腦有關",
+            Hint2: "同小貓有關",
+            Hint3: "唔係單純英文字嚟，包括一個數學經常用嘅符號",
+        },
+    },
+
+    Question6: {
+        Question: "米亞收得最多嘅野係咩?",
+
+        Answer: "和菓子",
+
+        Hint: {
+            Hint1: "食得嘅",
+            Hint2: "3 個字",
+            Hint3: "經常用名牌盒裝嘅",
+        },
+    },
+
+    Question7: {
+        Question: "MM嘅訪問做就咗邊個梗嘅誕生?",
+
+        Answer: "55",
+
+        Hint: {
+            Hint1: "2個字",
+            Hint2: "溝通用嘅",
+            Hint3: "觀眾成日用嘅",
+        },
+    },
+
+    Question8: {
+        Question: "Ming 哥提出咗送咩攪到米亞要買多樣回禮?",
+
+        Answer: "藍罐曲奇",
+
+        Hint: {
+            Hint1: "食得嘅",
+            Hint2: "老人家最鍾意攞佢嚟裝野",
+            Hint3: "同 RG30 有關",
+        },
+    },
+
+    Question9: {
+        Question: "米亞1.0 比觀眾起咗個咩花名?",
+
+        Answer: "曾志米",
+
+        Hint: {
+            Hint1: "某公司不排除提供",
+            Hint2: "同聲音有關嘅",
+            Hint3: "大頭BB 嘅friend",
+        },
+    },
+
+    Question10: {
+        Question: "火車就嚟撞到路軌上瞓緊覺嘅人，應該要做咩?",
+
+        Answer: "叫醒佢哋信耶蘇",
+
+        Hint: {
+            Hint1: "火車難題嗰條live, 之後剪咗做精華",
+            Hint2: "句子嚟, 7個字",
+            Hint3: "路軌上嘅人回應: X你老母 _ _ _ _ ",
+        },
+    },
+
+    Question11: {
+        Question: "有讀寫障礙嘅仆直見到米亞寫嘅問題係word 用紅色 highlight 咗咩?",
+
+        Answer: "靚仔",
+
+        Hint: {
+            Hint1: "係一條二揀一題目嘅問題嚟",
+            Hint2: "2個字, 仆直成日叫自己做嘅野",
+            Hint3: "米亞同仆直都好重視嘅野",
+        },
+    },
+
+    Question12: {
+        Question: "米亞最近嘅新花名係咩（如果有英文字嘅請用細階表達同唔好隔格)?",
+
+        Answer: "準時jj",
+
+        Hint: {
+            Hint1: "米亞成日做唔到嘅野",
+            Hint2: "同L差唔多意思",
+            Hint3: "中英混合",
+        },
+    },
+
+    Question13: {
+        Question: "一柱擎天又名咩?",
+
+        Answer: "勝利之劍",
+
+        Hint: {
+            Hint1: "學御宅藝嗰條live 誕生嘅",
+            Hint2: "其中兩個字係古代會用嘅野",
+            Hint3: "同武器有關",
+        },
+    },
+
+    Question14: {
+        Question: "米亞1年前用咗甘米嘅皮開live, 觀眾比咗個咩名佢?",
+
+        Answer: "廿米",
+
+        Hint: {
+            Hint1: "女僕咖啡廳其中一個女僕",
+            Hint2: "隻字少咗啲野",
+            Hint3: "其中一隻字同一種涼茶嘅名相同",
         },
     },
 };
@@ -207,6 +328,9 @@ function checkLetters(userInputCharArray) {
         answeredQuestion.push(currentQuestion);
         alert("Congrats! 你答啱咗!");
         //console.log("U did it!");
+
+        score += 1;
+
         questionInit();
         domQuestionDisplayUpdate();
 
@@ -220,7 +344,6 @@ function checkLetters(userInputCharArray) {
         correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
         leftToGuessDisplay.innerHTML = `仲要估多: - 個字`;
 
-        score += 1;
         domScoreDisplay();
 
         //clear canvas
@@ -235,6 +358,8 @@ function checkLetters(userInputCharArray) {
 
         if (life == 0) {
             var delayInMilliseconds = 100; //0.1 second
+
+            score = 0;
 
             setTimeout(function () {
                 alert(`正確答案: ${currentAnswer}`);
@@ -256,6 +381,7 @@ function getHint() {
     const hintToDisplayKey = hintKeys[currentHintIndex - 1];
     const hintToDisplay = currentQuestion.Hint[hintToDisplayKey];
     // console.log(`${hintToDisplayKey}: ${hintToDisplay}`);
+    containerHint.innerHTML = `題示 ${currentHintIndex}: ${hintToDisplay}`;
 
     if (currentHintIndex < 3) {
         currentHintIndex = currentHintIndex + 1;
@@ -284,9 +410,11 @@ function getAnswer() {
 
 function questionInit() {
     let i = 0;
-    if (score < 4) {
+
+    if (score !== 10) {
         setQuestion();
         getAnswer();
+        currentHintIndex = 1;
 
         while (answeredQuestion.includes(currentQuestion) && i < 100) {
             setQuestion();
@@ -294,29 +422,36 @@ function questionInit() {
             //console.log("triggered");
 
             i++;
+            currentHintIndex = 1;
         }
+    } else {
+        location.href = "./congrets.html";
     }
 
     if (i == 100) {
         location.href = "./congrets.html";
         i = 0;
 
-        console.log(i);
+        //console.log(i);
     }
+
+    containerHint.innerHTML = `題示: -`;
 }
 
 function questionSkipInit() {
     let i = 0;
-    if (score < 4) {
+
+    if (score !== 10) {
         setQuestion();
         getAnswer();
+        currentHintIndex = 1;
 
         while (answeredQuestion.includes(currentQuestion) && i < 100) {
             setQuestion();
             getAnswer();
-            //console.log("triggered");
 
             i++;
+            currentHintIndex = 1;
         }
     }
 
@@ -325,14 +460,18 @@ function questionSkipInit() {
     correctAttemp = 0;
 
     //reset DOM
+    containerHint.innerHTML = `題示: -`;
     correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
     resetDomLeftToGuess();
 }
 
 function hintHandler() {
-    currentHint = getHint();
-    containerHint.innerHTML = currentHint;
-    // console.log(currentHint);
+    if (initHint) {
+        getHint();
+    } else {
+        currentHint = getHint();
+        containerHint.innerHTML = currentHint;
+    }
 }
 
 // function debugButton() {
