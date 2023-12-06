@@ -8,16 +8,21 @@ body {
   font-size: 18px;
 }
 
-.wrappper {
+/* .wrappper {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-}
+} */
 
-canvas {
+#stickman {
+  width: 80%;
+  height: auto;
+  aspect-ratio: 16/9, 5;
+  padding-left: 30px ;
   color: white;
-  border: white dashed 2px;
-  padding: 15px;
+  border: rgb(160, 160, 160) solid 2px;
+  padding: 6px;
+  border-radius: 10px;
 }
 
 h1,
@@ -38,16 +43,12 @@ h2 {
 
 p {
   font-size: 1.2em;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
-.maintitle{
-  font-size: 2.4rem;
-  display: block;
-  text-align: center;
-  align-items: center;
-  padding-top: 40vh;
-  padding-bottom: 50vh;
-  font-weight: 300;
+#title{
+margin-top: 30px;
 }
 
 .title-subcaption{
@@ -67,7 +68,7 @@ p {
 }
 
 Button {
-  background: #c1d72e;
+  background: #fc7294;
   border-radius: 5px;
   border: solid 1px white;
   color: white;
@@ -80,7 +81,7 @@ Button:hover {
   transition: 0.3s;
   background: white;
   border: solid 1px white;
-  color: #c1d72e;
+  color: #d11746d5;
 }
 
 .selected {
@@ -91,7 +92,7 @@ Button:hover {
 
 .btn-2 {
   border-radius: 10px;
-  background: #c1d72e;
+  background: #fc7294;
   color: white;
   border: solid 1px white;
   text-decoration: none;
@@ -106,8 +107,34 @@ Button:hover {
 }
 .btn-2:hover {
   transition: 0.3s;
-  background: #9fb226;
+  background: #d11746d5;
   border: solid 1px white;
   color: #ffffff;
 }
 
+.grid-container{
+  display: grid;
+  grid-template-columns: 1fr 50%;
+  grid-auto-rows: minmax(1fr, auto);
+}
+
+.grid-item-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info{
+line-height: 0.5rem;
+padding-bottom: 1rem;
+}
+
+
+.button-group {
+  margin-top: calc(var(--size-bezel) * 2.5);
+}
+
+input{
+  height: 2rem;
+  width: 13rem;
+}

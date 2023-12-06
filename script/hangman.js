@@ -22,6 +22,7 @@ var initStatus = true;
 
 var isAnswerCorrect = false;
 var answeredQuestion = [];
+var correctAttemp = 0;
 
 const containerHint = document.getElementById("clue");
 const buttonHint = document.getElementById("hint");
@@ -31,6 +32,7 @@ const correctMatching = document.querySelector("#correctmatching");
 
 const questionDisplay = document.querySelector("#question");
 const scoreDisplay = document.querySelector("#score");
+const leftToGuessDisplay = document.querySelector("#numberofcharacterlefttoguest");
 
 //HangMan Related
 var myStickman = document.getElementById("stickman");
@@ -196,6 +198,8 @@ function checkLetters(userInputCharArray) {
             matchingArray.push(userInputCharArray[i]);
             //console.log(`This is the array list ${matchingArray}`);
             correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
+            correctAttemp = correctAttemp + 1;
+            domLeftToGuess(correctAttemp, currentAnswerCharArray.length);
         }
     }
 
@@ -209,6 +213,7 @@ function checkLetters(userInputCharArray) {
         matchingArray = [];
 
         //console.log(matchingArray);
+
         correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
 
         score += 1;
@@ -220,13 +225,16 @@ function checkLetters(userInputCharArray) {
 
         life = 10;
     } else {
-        console.log("you failed ");
+        //console.log("you failed ");
         life = life - 1;
         animate();
 
         if (life == 0) {
-            alert("你輸咗 QaQ");
-            location.reload();
+            var delayInMilliseconds = 300; //0.3 second
+
+            setTimeout(function () {
+                location.href = "./lose.html";
+            }, delayInMilliseconds);
         }
     }
 }
@@ -278,7 +286,7 @@ function questionInit() {
         while (answeredQuestion.includes(currentQuestion) && i < 100) {
             setQuestion();
             getAnswer();
-            console.log("triggered");
+            //console.log("triggered");
 
             i++;
         }
@@ -300,10 +308,10 @@ function hintHandler() {
     // console.log(currentHint);
 }
 
-function debugButton() {
-    console.log(currentQuestion, currentAnswer);
-    console.log(currentAnswer);
-}
+// function debugButton() {
+//     console.log(currentQuestion, currentAnswer);
+//     console.log(currentAnswer);
+// }
 
 function domQuestionDisplayUpdate() {
     questionDisplay.innerHTML = `題目: ${currentQuestion.Question}`;
@@ -313,7 +321,12 @@ function domScoreDisplay() {
     scoreDisplay.innerHTML = `分數: ${score}`;
 }
 
+function domLeftToGuess(correntAmount, total) {
+    leftToGuessDisplay.innerHTML = `仲要估多: ${total - correntAmount}個字`;
+    //console.log(correctAttemp);
+}
+
 function compareTwoArrays(arr1, arr2) {
-    console.log(`Returned ${JSON.stringify(arr1) == JSON.stringify(arr2)}`);
+    //console.log(`Returned ${JSON.stringify(arr1) == JSON.stringify(arr2)}`);
     return JSON.stringify(arr1) == JSON.stringify(arr2);
 }

@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title >米亞梗圖 Hangman</title>
-    <meta charset="UTF-8" />
-    <link href="hangman.css" rel="stylesheet" type="text/css" />
+    <head>
+        <title>米亞梗圖 Hangman</title>
+        <meta charset="UTF-8" />
+        <link href="hangman.css" rel="stylesheet" type="text/css" />
+    </head>
 
-  </head>
+    <body>
+        <div class="title">
+            <h1 class="title" id="title">米亞梗圖 Hangman</h1>
+            <h2 class="title-subcaption">米亞3周年限定</h2>
+        </div>
 
-  <body>
-    <div class="wrapper">
-      <h1 class="title">米亞梗圖 Hangman</h1>
-      <h2 class="title-subcaption">米亞3周年限定</h2>
-      
-    </div>
+        <div class="grid-container">
+            <div class="grid-item grid-item-1">
+                <canvas id="stickman"> Your browser does NOT support HTML5 Canvas tag, please consider using Chrome. </canvas>
+            </div>
 
-    <div class="wrapper content" >
-        <p id="question"></p>
+            <div class="grid-item grid-item-2">
+                <p id="question"></p>
 
-        <p class="description">在下方嘅輸入中打出答案(每次輸入一個字)</p>
-        <form onsubmit="getUserInput(); return false;">
-            <input class="input_box" id="input_box"></input>
-        </form>
-        
-        <button id="debug" onclick="debugButton()">debug</button>
-      
-    
-      <div id="hold"></div>
-      <p id="mylives"></p>
+                <p class="description">在下方嘅輸入中打出答案</p>
 
-      <p id="correctmatching">依家啱咗: -</p>
-      <p id="clue">提示: -</p>
-      <p id="score">分數: 0</p>
-      
-      <canvas id="stickman">
-        Your browser does NOT support HTML5 Canvas tag, please consider using Chrome.
-      </canvas>
+                <form onsubmit="getUserInput(); return false;">
+                    <input class="input_box" id="input_box" />
+                </form>
 
-      <div class="container">
-        <button class="btn-2" id="hint" onclick="hintHandler()">提示</button>
-        <button class="btn-2" id="reset" onclick="questionSkipInit()">下題</button>
-      </div>
-    </div>
+                <!-- <button id="debug" onclick="debugButton()">debug</button> -->
 
-    <script src="script/hangman.js"></script>
-  </body>
+                <div id="hold"></div>
+                <p id="mylives"></p>
+
+                <div class="info">
+                    <p id="numberofcharacterlefttoguest">仲要估多: - 個字</p>
+                    <p id="correctmatching">依家啱咗: -</p>
+                    <p id="clue">提示: -</p>
+                    <p id="score">分數: 0</p>
+                </div>
+
+                <button class="btn-2" id="hint" onclick="hintHandler()">提示</button>
+                <button class="btn-2" id="reset" onclick="questionSkipInit()">下題</button>
+            </div>
+        </div>
+
+        <script src="script/hangman.js"></script>
+    </body>
 </html>
