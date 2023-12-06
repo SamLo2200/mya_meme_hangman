@@ -11,6 +11,7 @@ body {
 .wrappper {
   width: 100%;
   margin: 0 auto;
+  text-align: center;
 }
 
 canvas {
@@ -39,6 +40,32 @@ p {
   font-size: 1.2em;
 }
 
+.maintitle{
+  font-size: 2.4rem;
+  display: block;
+  text-align: center;
+  align-items: center;
+  padding-top: 40vh;
+  padding-bottom: 50vh;
+  font-weight: 300;
+}
+
+.title-subcaption{
+  padding-bottom: 1rem;
+}
+
+.description{
+  font-size: 16px;
+}
+
+#question{
+  display: inline-flex;
+  background-color: rgba(238, 238, 238, 0.868);
+  align-items: center;
+  padding: 13px;
+  border-radius: 20px;
+}
+
 Button {
   background: #c1d72e;
   border-radius: 5px;
@@ -50,7 +77,7 @@ Button {
   outline: none;
 }
 Button:hover {
-  transition: 0.5s;
+  transition: 0.3s;
   background: white;
   border: solid 1px white;
   color: #c1d72e;
@@ -78,8 +105,9 @@ Button:hover {
   outline: none;
 }
 .btn-2:hover {
-  transition: 0.5s;
-  background: white;
+  transition: 0.3s;
+  background: #9fb226;
   border: solid 1px white;
-  color: #c1d72e;
+  color: #ffffff;
 }
+
