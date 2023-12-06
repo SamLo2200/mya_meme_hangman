@@ -107,26 +107,26 @@ function leftLeg() {
 //Questionsssss
 const Question = {
     Question1: {
-        Question: "你今日食咗飯未呀?",
+        Question: "福袋又名咩?",
 
-        Answer: "食咗",
+        Answer: "蟹貨福袋",
 
         Hint: {
-            Hint1: "今日你好似出咗街",
-            Hint2: "你睇下朋友個ig",
-            Hint3: "你睇下whatsapp",
+            Hint1: "4個字",
+            Hint2: "動物嚟",
+            Hint3: "床下底",
         },
     },
 
     Question2: {
-        Question: "交咗校巴費未?",
+        Question: "米亞來自邊個國家?",
 
-        Answer: "交咗",
+        Answer: "北韓",
 
         Hint: {
-            Hint1: "睇下e-class",
-            Hint2: "睇下銀包",
-            Hint3: "問你屋企人",
+            Hint1: "2個字, 係米亞3 歲同啊媽走嘅",
+            Hint2: "5月酒雜談講嘅野嚟",
+            Hint3: "好難離開嘅國家，離開會有人追",
         },
     },
 
@@ -210,11 +210,15 @@ function checkLetters(userInputCharArray) {
         questionInit();
         domQuestionDisplayUpdate();
 
+        //reset variables
         matchingArray = [];
+        correctAttemp = 0;
 
         //console.log(matchingArray);
 
+        //reset DOM
         correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
+        leftToGuessDisplay.innerHTML = `仲要估多: - 個字`;
 
         score += 1;
         domScoreDisplay();
@@ -230,9 +234,10 @@ function checkLetters(userInputCharArray) {
         animate();
 
         if (life == 0) {
-            var delayInMilliseconds = 300; //0.3 second
+            var delayInMilliseconds = 100; //0.1 second
 
             setTimeout(function () {
+                alert(`正確答案: ${currentAnswer}`);
                 location.href = "./lose.html";
             }, delayInMilliseconds);
         }
@@ -294,12 +299,34 @@ function questionInit() {
 
     if (i == 100) {
         location.href = "./congrets.html";
+        i = 0;
+
+        console.log(i);
     }
 }
 
 function questionSkipInit() {
-    setQuestion();
-    getAnswer();
+    let i = 0;
+    if (score < 4) {
+        setQuestion();
+        getAnswer();
+
+        while (answeredQuestion.includes(currentQuestion) && i < 100) {
+            setQuestion();
+            getAnswer();
+            //console.log("triggered");
+
+            i++;
+        }
+    }
+
+    //reset variables
+    matchingArray = [];
+    correctAttemp = 0;
+
+    //reset DOM
+    correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
+    resetDomLeftToGuess();
 }
 
 function hintHandler() {
@@ -324,6 +351,10 @@ function domScoreDisplay() {
 function domLeftToGuess(correntAmount, total) {
     leftToGuessDisplay.innerHTML = `仲要估多: ${total - correntAmount}個字`;
     //console.log(correctAttemp);
+}
+
+function resetDomLeftToGuess() {
+    leftToGuessDisplay.innerHTML = `仲要估多: - 個字`;
 }
 
 function compareTwoArrays(arr1, arr2) {
