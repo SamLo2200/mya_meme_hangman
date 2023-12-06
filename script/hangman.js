@@ -161,7 +161,7 @@ const Question = {
         Answer: "alt+f4",
 
         Hint: {
-            Hint1: "6個字, 同電腦有關",
+            Hint1: "6個字, 同電腦shortcut有關",
             Hint2: "同小貓有關",
             Hint3: "唔係單純英文字嚟，包括一個數學經常用嘅符號",
         },
@@ -223,7 +223,7 @@ const Question = {
         Hint: {
             Hint1: "火車難題嗰條live, 之後剪咗做精華",
             Hint2: "句子嚟, 7個字，關宗教事嘅",
-            Hint3: "路軌上嘅人回應: X你老母 _ _ _ _ ",
+            Hint3: "路軌上嘅人回應: X你老母 _ 信 _ _ ",
         },
     },
 
