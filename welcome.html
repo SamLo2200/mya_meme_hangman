@@ -23,21 +23,24 @@
                 margin: 5px 0;
             }
 
-            .title {
+            .flex-container {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
             }
 
+            .title {
+                text-align: center;
+            }
             .title-subcaption {
                 font-size: 1.5rem;
             }
             .content {
                 margin: auto;
                 padding: 0% 0% 2% 0%;
-                width: 64%;
-                min-width: 516px;
+                width: 60%;
+                min-width: 300px;
 
                 background-color: rgba(246, 245, 245, 0.987);
                 border-radius: 10px;
@@ -64,9 +67,9 @@
             }
 
             .credit {
-                display: flex;
+                /* display: flex;
                 align-content: center;
-                justify-content: center;
+                justify-content: center; */
             }
 
             /* .developer {
@@ -74,8 +77,8 @@
 
             .button-warpper {
                 margin-top: 1rem;
-                display: flex;
-                justify-content: center;
+                /* display: flex;
+                justify-content: center; */
             }
 
             button {
@@ -95,42 +98,44 @@
         </style>
     </head>
     <body>
-        <div class="title">
-            <h1 class="title" id="title">米亞梗 Hangman</h1>
-            <h2 class="title-subcaption">米亞3周年限定</h2>
-        </div>
-
-        <div class="content">
-            <div class="paragraph paragraph-1">
-                <p class="subtitle">感言:</p>
-
-                <p class="sub-paragraph">恭喜米亞3周年呀, 勁開心今年認識到米亞🥳 今次寫咗呢個中文版hangman 挑戰下你仲記唔記得咁多年唔同meme嘅細節，一共出咗14條，答啱晒10條就贏到呢隻game。</p>
-
-                <p class="sub-paragraph">今次時間都比較趕，同我自己都比assignment 塞滿咗啲schedule, 所以有好多UI 同遊戲嘅原素都冇咩時間諗 😭 希望出到嚟呢個成品有做到我想完成嘅野啦 🥺</p>
+        <div class="flex-container">
+            <div class="title">
+                <h1 class="title" id="title">米亞梗 Hangman</h1>
+                <h2 class="title-subcaption">米亞3周年限定</h2>
             </div>
 
-            <div class="paragraph paragraph-2">
-                <p class="subtitle">遊戲玩法:</p>
+            <div class="content">
+                <div class="paragraph paragraph-1">
+                    <p class="subtitle">感言:</p>
 
-                <div class="list-wrapper">
-                    <p class="sub-paragraph list">1. 每題你一共有10條命(係左手邊有個火柴一，每一個部件代表生命值 -1，佢吊頸嘅話就代表冇晒命)</p>
-                    <p class="sub-paragraph list">2. 可以用單字撞個matching list 出嚟，會同你講返咩字啱咗，都會講返仲有幾多個字要估</p>
-                    <p class="sub-paragraph list">3. 如果冇晒呢10條命就會死，同show返呢條嘅答案出嚟</p>
-                    <p class="sub-paragraph list">4. 過程中容許google同睇返youtube以前嘅直播</p>
+                    <p class="sub-paragraph">恭喜米亞3周年呀, 勁開心今年認識到米亞🥳 今次寫咗呢個中文版hangman 挑戰下你仲記唔記得咁多年唔同meme嘅細節，一共出咗14條，答啱晒10條就贏到呢隻game。</p>
+
+                    <p class="sub-paragraph">今次時間都比較趕，同我自己都比assignment 塞滿咗啲schedule, 所以有好多UI 同遊戲嘅原素都冇咩時間諗 😭 希望出到嚟呢個成品有做到我想完成嘅野啦 🥺</p>
                 </div>
 
-                <p class="sub-paragraph">希望你鍾意呢隻小遊戲啦！ 祝你好運，聽講啲題目都幾難 😂</p>
+                <div class="paragraph paragraph-2">
+                    <p class="subtitle">遊戲玩法:</p>
+
+                    <div class="list-wrapper">
+                        <p class="sub-paragraph list">1. 每題你一共有10條命(係左手邊有個火柴一，每一個部件代表生命值 -1，佢吊頸嘅話就代表冇晒命)</p>
+                        <p class="sub-paragraph list">2. 可以用單字撞個matching list 出嚟，會同你講返咩字啱咗，都會講返仲有幾多個字要估</p>
+                        <p class="sub-paragraph list">3. 如果冇晒呢10條命就會死，同show返呢條嘅答案出嚟</p>
+                        <p class="sub-paragraph list">4. 過程中容許google同睇返youtube以前嘅直播</p>
+                    </div>
+
+                    <p class="sub-paragraph">希望你鍾意呢隻小遊戲啦！ 祝你好運，聽講啲題目都幾難 😂</p>
+                </div>
             </div>
-        </div>
 
-        <div class="credit">
-            <p class="developer">Developed by: I’m error(Sam)</p>
-        </div>
+            <div class="credit">
+                <p class="developer">Developed by: I’m error(Sam)</p>
+            </div>
 
-        <div class="button-warpper">
-            <a href="hangman.html">
-                <button>開始遊戲 🎮</button>
-            </a>
+            <div class="button-warpper">
+                <a href="hangman.html">
+                    <button>開始遊戲 🎮</button>
+                </a>
+            </div>
         </div>
     </body>
 </html>
