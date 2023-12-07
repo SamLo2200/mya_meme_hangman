@@ -162,7 +162,7 @@ const Question = {
 
         Hint: {
             Hint1: "6個字, 同電腦shortcut有關",
-            Hint2: "同小貓有關",
+            Hint2: "同小貓有關, 頭一個字係a嚟",
             Hint3: "唔係單純英文字嚟，包括一個數學經常用嘅符號",
         },
     },
@@ -197,7 +197,7 @@ const Question = {
         Answer: "藍罐曲奇",
 
         Hint: {
-            Hint1: "食得嘅",
+            Hint1: "食得嘅, 4個字",
             Hint2: "老人家最鍾意攞佢嚟裝野",
             Hint3: "同 RG30 有關",
         },
@@ -209,7 +209,7 @@ const Question = {
         Answer: "曾志米",
 
         Hint: {
-            Hint1: "某公司不排除提供",
+            Hint1: "3個字, 某公司不排除提供",
             Hint2: "同聲音有關嘅",
             Hint3: "大頭BB 嘅friend",
         },
@@ -222,7 +222,7 @@ const Question = {
 
         Hint: {
             Hint1: "火車難題嗰條live, 之後剪咗做精華",
-            Hint2: "句子嚟, 7個字，關宗教事嘅",
+            Hint2: "句子嚟, 7個字, 關宗教事嘅",
             Hint3: "路軌上嘅人回應: X你老母 _ 信 _ _ ",
         },
     },
@@ -247,7 +247,7 @@ const Question = {
         Hint: {
             Hint1: "米亞成日做唔到嘅野",
             Hint2: "同L差唔多意思",
-            Hint3: "中英混合",
+            Hint3: "4個字, 中英混合",
         },
     },
 
@@ -257,7 +257,7 @@ const Question = {
         Answer: "勝利之劍",
 
         Hint: {
-            Hint1: "學御宅藝嗰條live 誕生嘅",
+            Hint1: "4個字, 學御宅藝嗰條live 誕生嘅",
             Hint2: "其中兩個字係古代會用嘅野",
             Hint3: "同武器有關",
         },
@@ -269,7 +269,7 @@ const Question = {
         Answer: "廿米",
 
         Hint: {
-            Hint1: "女僕咖啡廳其中一個女僕",
+            Hint1: "2個字, 女僕咖啡廳其中一個女僕",
             Hint2: "隻字少咗啲野",
             Hint3: "其中一隻字同一種涼茶嘅名相同",
         },
