@@ -194,11 +194,11 @@ const Question = {
     Question8: {
         Question: "Ming 哥提出咗送咩攪到米亞要買多樣回禮?",
 
-        Answer: "藍罐曲奇",
+        Answer: "嘉頓雜餅",
 
         Hint: {
             Hint1: "食得嘅, 4個字",
-            Hint2: "老人家最鍾意攞佢嚟裝野",
+            Hint2: "可以食好耐嘅，新年用嚟送禮一流",
             Hint3: "同 RG30 有關",
         },
     },
