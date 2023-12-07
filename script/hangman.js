@@ -381,7 +381,7 @@ function getHint() {
     const hintToDisplayKey = hintKeys[currentHintIndex - 1];
     const hintToDisplay = currentQuestion.Hint[hintToDisplayKey];
     // console.log(`${hintToDisplayKey}: ${hintToDisplay}`);
-    containerHint.innerHTML = `題示 ${currentHintIndex}: ${hintToDisplay}`;
+    containerHint.innerHTML = `提示 ${currentHintIndex}: ${hintToDisplay}`;
 
     if (currentHintIndex < 3) {
         currentHintIndex = currentHintIndex + 1;
@@ -389,7 +389,7 @@ function getHint() {
         currentHintIndex = 1;
     }
 
-    return `題示 ${currentHintIndex}: ${hintToDisplay}`;
+    return `提示 ${currentHintIndex}: ${hintToDisplay}`;
 }
 
 function getRandomQuestion() {
@@ -435,7 +435,7 @@ function questionInit() {
         //console.log(i);
     }
 
-    containerHint.innerHTML = `題示: -`;
+    containerHint.innerHTML = `提示: -`;
 }
 
 function questionSkipInit() {
@@ -460,7 +460,7 @@ function questionSkipInit() {
     correctAttemp = 0;
 
     //reset DOM
-    containerHint.innerHTML = `題示: -`;
+    containerHint.innerHTML = `提示: -`;
     correctMatching.innerHTML = `依家啱咗: ${matchingArray}`;
     resetDomLeftToGuess();
 }
