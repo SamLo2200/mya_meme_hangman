@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            body {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                background-color: #ffffff;
+                color: rgb(0, 0, 0);
+                height: 100%;
+                font-size: 18px;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-family: "Roboto", sans-serif;
+                font-weight: 100;
+                text-transform: uppercase;
+                margin: 5px 0;
+            }
+
+            .title {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .title-subcaption {
+                font-size: 1.5rem;
+            }
+            .content {
+                margin: auto;
+                padding: 0% 0% 2% 0%;
+                width: 64%;
+                min-width: 516px;
+
+                background-color: rgba(246, 245, 245, 0.987);
+                border-radius: 10px;
+            }
+
+            .paragraph {
+                width: 80%;
+                margin: auto;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                padding: 10% 0 0.2% 0;
+            }
+
+            .sub-paragraph {
+                padding: 5px 0px 5px 0px;
+                line-height: 1.5;
+            }
+
+            .list-wrapper {
+                margin-left: 30px;
+                padding: 0.5px 0px 20px 0px;
+            }
+
+            .credit {
+                display: flex;
+                align-content: center;
+                justify-content: center;
+            }
+
+            .developer {
+            }
+
+            .button-warpper {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+            }
+
+            button {
+                background: #fc7294;
+                color: #fff;
+                border: none;
+
+                font-size: 1.35rem;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+
+            button:hover {
+                transition: 0.3s;
+                background: #d11746d5;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            <h1 class="title" id="title">米亞梗 Hangman</h1>
+            <h2 class="title-subcaption">米亞3周年限定</h2>
+        </div>
+
+        <div class="content">
+            <div class="paragraph paragraph-1">
+                <p class="subtitle">感言:</p>
+
+                <p class="sub-paragraph">恭喜米亞3周年呀, 勁開心今年認識到米亞🥳 今次寫咗呢個中文版hangman 挑戰下你仲記唔記得咁多年唔同meme嘅細節，一共出咗14條，答啱晒10條就贏到呢隻game。</p>
+
+                <p class="sub-paragraph">今次時間都比較趕，同我自己都比assignment 塞滿咗啲schedule, 所以有好多UI 同遊戲嘅原素都冇咩時間諗 😭 希望出到嚟呢個成品有做到我想完成嘅野啦 🥺</p>
+            </div>
+
+            <div class="paragraph paragraph-2">
+                <p class="subtitle">遊戲玩法:</p>
+
+                <div class="list-wrapper">
+                    <p class="sub-paragraph list">1. 每題你一共有10條命(係左手邊有個火柴一，每一個部件代表生命值 -1，佢吊頸嘅話就代表冇晒命)</p>
+                    <p class="sub-paragraph list">2. 可以用單字撞個matching list 出嚟，會同你講返咩字啱咗，都會講返仲有幾多個字要估</p>
+                    <p class="sub-paragraph list">3. 如果冇晒呢10條命就會死，同show返呢條嘅答案出嚟</p>
+                    <p class="sub-paragraph list">4. 過程中容許google同睇返youtube以前嘅直播</p>
+                </div>
+
+                <p class="sub-paragraph">希望你鍾意呢隻小遊戲啦！ 祝你好運，聽講啲題目都幾難 😂</p>
+            </div>
+        </div>
+
+        <div class="credit">
+            <p class="developer">Developed by: I’m error(Sam)</p>
+        </div>
+
+        <div class="button-warpper">
+            <a href="hangman.html">
+                <button>開始遊戲 🎮</button>
+            </a>
+        </div>
+    </body>
+</html>

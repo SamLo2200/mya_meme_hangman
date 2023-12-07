@@ -425,11 +425,11 @@ function questionInit() {
             currentHintIndex = 1;
         }
     } else {
-        location.href = "./congrets.html";
+        location.href = "./congrats.html";
     }
 
     if (i == 100) {
-        location.href = "./congrets.html";
+        location.href = "./congrats.html";
         i = 0;
 
         //console.log(i);
