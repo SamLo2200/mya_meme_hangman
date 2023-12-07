@@ -132,6 +132,10 @@ line-height: 0.5rem;
 padding-bottom: 1rem;
 }
 
+.clue{
+  line-height: 2;
+}
+
 
 .button-group {
   margin-top: calc(var(--size-bezel) * 2.5);

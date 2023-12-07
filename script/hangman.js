@@ -134,10 +134,10 @@ const Question = {
     Question3: {
         Question: "YK先生又名咩?",
 
-        Answer: "關羽大哥",
+        Answer: "關羽",
 
         Hint: {
-            Hint1: "4個字, 有兩個字係男性嘅稱呼",
+            Hint1: "2個字",
             Hint2: "歷史人物嚟",
             Hint3: "同數字有關嘅",
         },
