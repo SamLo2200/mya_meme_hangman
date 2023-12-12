@@ -218,7 +218,7 @@ const Question = {
     Question10: {
         Question: "火車就嚟撞到路軌上瞓緊覺嘅人，應該要做咩?",
 
-        Answer: "叫醒佢哋信耶蘇",
+        Answer: "叫醒佢哋信耶穌",
 
         Hint: {
             Hint1: "火車難題嗰條live, 之後剪咗做精華，入面其中一句",
